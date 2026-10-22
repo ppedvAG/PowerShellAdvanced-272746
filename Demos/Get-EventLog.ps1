@@ -44,15 +44,28 @@ https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/ab
 #>
 [cmdletBinding()]
 param(
+[ValidateScript({Test-NetConnection -Computername $PSItem -CommonTCPPort WinRm})]
 [string]$Computername = "localhost",
 
 [Parameter(Mandatory=$true)]
+[ValidateSet(4624,4625,4634)]
 [int]$EventId,
 
-[int]$Newest = 5
+[ValidateRange(5,20)]
+[int]$Newest = 3,
+
+[ValidatePattern("[a-z]{3}[0-9]{3}[.](csv)")]
+[string]$Filename = "Empty"
 
 )
 
 Write-Verbose -Message "Optionale Ausgabe"
-Get-EventLog -LogName Security -ComputerName $Computername | Where-Object EventId -eq $EventId | Select-Object -First $Newest
-
+$Events = Get-EventLog -LogName Security -ComputerName $Computername | Where-Object EventId -eq $EventId | Select-Object -First $Newest
+if($Filename -eq "Empty")
+{
+    $Events
+}
+else
+{
+    Export-Csv -NoTypeInformation -Path $Filename
+}
