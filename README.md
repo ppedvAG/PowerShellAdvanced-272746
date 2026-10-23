@@ -8,3 +8,15 @@ KursRepository zu Kurs PowerShell - Fortgeschrittene Techniken der ppedv AG
         - **5**, 6, 7
     - Neuerungen
 - Git / GitHub
+- Scripting
+    - Script Basics
+    - Parameter
+        - Parameter Validierung
+            - ValidateRange
+            - ValidateScript
+            - ValidatePattern
+            - ValidateLength
+        - Verbose Ausgabe
+        - Comment Based Help
+    - Fehlerbehandlung
+    - Skriptsignierung
