@@ -82,7 +82,7 @@ for($i = 1; $i -le $DirCount; $i++)
     $DirName = "Dir" + ("{0:D2}" -f $i)
     $subdir = New-Item -Path $TestDir.FullName -Name $DirName -ItemType Directory
 
-    for($j = 1; $j -le $FileCount; $i++)
+    for($j = 1; $j -le $FileCount; $j++)
     {
         $FileName = "File" + ("{0:D2}" -f $j) + ".txt"
         New-Item -Path $subdir.FullName -Name $FileName -ItemType File  
