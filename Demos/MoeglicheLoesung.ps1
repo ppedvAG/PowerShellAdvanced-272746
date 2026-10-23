@@ -1,4 +1,43 @@
-﻿[cmdletBinding()]
+﻿<#
+.SYNOPSIS
+    Erstellt einen Testordner mit Dateien und Unterordnern.
+
+.DESCRIPTION
+    Dieses Script erstellt einen Ordner mit dem angegebenen Namen unter dem
+    angegebenen Pfad. Optional werden dabei Dateien im Hauptordner und
+    Unterordner mit Dateien erzeugt.
+
+.PARAMETER Path
+    Zielpfad, unter dem der neue Ordner erstellt wird.
+
+.PARAMETER Name
+    Name des zu erstellenden Ordners.
+
+.PARAMETER FileCount
+    Anzahl der Dateien, die im Hauptordner angelegt werden.
+
+.PARAMETER DirCount
+    Anzahl der Unterordner, die im Hauptordner angelegt werden.
+
+.PARAMETER Force
+    Wenn gesetzt, wird ein bereits vorhandener Ordner mit demselben Namen
+    gelöscht und neu erstellt.
+
+.EXAMPLE
+    .\MoeglicheLoesung.ps1 -Path "C:\Temp" -Name "Demo" -FileCount 5 -DirCount 2
+
+    Erstellt unter C:\Temp einen Ordner "Demo" mit 5 Dateien und 2 Unterordnern.
+
+.EXAMPLE
+    .\MoeglicheLoesung.ps1 -Path "C:\Temp" -Name "Demo" -FileCount 3 -DirCount 1 -Force
+
+    Löscht ggf. einen vorhandenen Ordner "Demo" und erstellt ihn neu.
+
+.NOTES
+    Author: Stefan Ober
+    Version: 1.0
+#>
+cmdletBinding()]
 param(
 [ValidateScript({Test-Path -Path $PSItem -PathType Container})]
 [string]$Path,

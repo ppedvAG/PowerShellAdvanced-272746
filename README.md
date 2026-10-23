@@ -19,4 +19,7 @@ KursRepository zu Kurs PowerShell - Fortgeschrittene Techniken der ppedv AG
         - Verbose Ausgabe
         - Comment Based Help
     - Fehlerbehandlung
+    - Functions
+    - PowerShell Skript Module
+        - ModuleManifest
     - Skriptsignierung
