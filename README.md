@@ -23,3 +23,6 @@ KursRepository zu Kurs PowerShell - Fortgeschrittene Techniken der ppedv AG
     - PowerShell Skript Module
         - ModuleManifest
     - Skriptsignierung
+    - PipelineFähigkeit herstellen
+    - Begin Process End
+    
